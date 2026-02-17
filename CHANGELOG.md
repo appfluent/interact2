@@ -1,3 +1,10 @@
+## 3.0.0
+
+- Fixed multi-byte UTF-8 character input (accented/diacritical characters) on macOS and Linux
+- Created `AsyncComponent` and `AsyncInput` to facilitate async validators
+- Exported framework classes so developers can create their own components
+- Updated sdk and dependencies to the most recent versions
+
 ## 2.2.0
 
 - Update sdk and dependencies to the most recent ones

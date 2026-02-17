@@ -1,6 +1,8 @@
-# Interact
+# Interact2
 
 A collection of customizable interactive command-line components.
+
+Interact2 is a fork of the original Interact library and picks up where it left off. Thank you to the developers of the original Interact for their great work.
 
 <br>
 
@@ -49,7 +51,7 @@ It will result in something like this,
 
 ## Installation
 
-Install the latest version of interact as a dependency as shown in [pub.dev](https://pub.dev/packages/interact).
+Install the latest version of interact2 as a dependency as shown in [pub.dev](https://pub.dev/packages/interact2).
 
 <br>
 
@@ -57,7 +59,7 @@ Install the latest version of interact as a dependency as shown in [pub.dev](htt
 
 ### Components
 
-These are the snippets of components with their properties and arguments. Check the [pub documentation](https://pub.dev/documentation/interact/latest/) to get to know more about them in detail.
+These are the snippets of components with their properties and arguments. Check the [pub documentation](https://pub.dev/documentation/interact2/latest/) to get to know more about them in detail.
 
 <br>
 
@@ -271,7 +273,7 @@ Technically, you can also override `Theme.defaultTheme` as a shortcut.
 
 ### Handling Exceptions
 
-If your program throw exceptions and exit midway, interact's components won't be able to finish their tasks and gracefully quit therefore causing certain problems like cursors not showing up, terminal colors got modified etc. To fix these problems you should always try to catch exceptions and reset to terminal defaults using `reset` function.
+If your program throw exceptions and exit midway, interact2's components won't be able to finish their tasks and gracefully quit therefore causing certain problems like cursors not showing up, terminal colors got modified etc. To fix these problems you should always try to catch exceptions and reset to terminal defaults using `reset` function.
 
 ```dart
 try {

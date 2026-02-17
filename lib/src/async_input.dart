@@ -1,29 +1,22 @@
+import 'dart:async';
+
 import 'package:interact2/src/framework/framework.dart';
+import 'package:interact2/src/input.dart';
 import 'package:interact2/src/theme/theme.dart';
 import 'package:interact2/src/utils/prompt.dart';
 
-/// The error message to be thrown from the [Input] component's
-/// validator when there is an error.
-class ValidationError {
-  /// Constructs a [ValidationError] with given message.
-  ValidationError(this.message);
-
-  /// The error message.
-  final String message;
-}
-
 /// An input component.
-class Input extends Component<String> {
-  /// Constructs an [Input] component with the default theme.
-  Input({
+class AsyncInput extends AsyncComponent<String> {
+  /// Constructs an [AsyncInput] component with the default theme.
+  AsyncInput({
     required this.prompt,
     this.validator,
     this.initialText = '',
     this.defaultValue,
   }) : theme = Theme.defaultTheme;
 
-  /// Constructs an [Input] component with the supplied theme.
-  Input.withTheme({
+  /// Constructs an [AsyncInput] component with the supplied theme.
+  AsyncInput.withTheme({
     required this.prompt,
     required this.theme,
     this.validator,
@@ -48,13 +41,13 @@ class Input extends Component<String> {
   /// entered the input. If the function throw a [ValidationError]
   /// instead of returning `true`, the error will be shown and
   /// a new input will be asked.
-  final bool Function(String)? validator;
+  final Future<bool> Function(String)? validator;
 
   @override
-  _InputState createState() => _InputState();
+  _AsyncInputState createState() => _AsyncInputState();
 }
 
-class _InputState extends State<Input> {
+class _AsyncInputState extends State<AsyncInput> {
   String? value;
   String? error;
 
@@ -91,7 +84,7 @@ class _InputState extends State<Input> {
   }
 
   @override
-  String interact() {
+  Future<String> interact() async {
     while (true) {
       context.write(
         promptInput(
@@ -107,7 +100,7 @@ class _InputState extends State<Input> {
 
       if (component.validator != null) {
         try {
-          component.validator!(line);
+          await component.validator!(line);
         } on ValidationError catch (e) {
           setState(() {
             error = e.message;

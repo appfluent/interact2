@@ -1,4 +1,4 @@
-import 'package:interact/interact.dart' show MultiProgress, Progress, Theme;
+import 'package:interact2/interact.dart' show MultiProgress, Progress, Theme;
 import 'package:tint/tint.dart';
 
 Future<void> main() async {

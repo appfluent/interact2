@@ -9,34 +9,15 @@ part of 'framework.dart';
 ///
 /// Generic [T] is the return type of the [Component] which
 /// will be returned from the `interact()` function.
-abstract class Component<T extends dynamic> {
-  /// Creates a [State] for current component,
-  /// inspired by Flutter's [StatefulWidget].
-  State createState();
+abstract class AsyncComponent<T extends dynamic> extends Component<Future<T>> {
 
-  /// Disposes current state, to make the [Context] null and unusable
-  /// after the rendering is completely finished.
-  ///
-  /// Exposed with the purpose to be overriden by [Spinner] and [Progress]
-  /// components which dispose the context only when the `done` function
-  /// is called.
-  void disposeState(State state) => state.dispose();
-
-  /// Pipes the state after running `createState` in case of
-  /// needing to handle the state from outside.
-  State pipeState(State state) => state;
-
-  // Temporarily stores the number of lines written
-  // by the `init()` here
-  // to clean them up after `dispose()`
-  int _initLinesCount = 0;
-
-  /// Starts the rendering processs.
+  /// Starts the rendering process.
   ///
   /// Handles not only rendering the `interact` function from the [State]
   /// but also the lifecycle methods such as `init` and `dispose`.
   /// Also does the initial rendering.
-  T interact() {
+  @override
+  Future<T> interact() async {
     // Initialize the state
     final state = pipeState(createState());
     state._component = this;
@@ -49,7 +30,7 @@ abstract class Component<T extends dynamic> {
     state.context.increaseRenderCount();
 
     // Start interact and render loop
-    final output = state.interact();
+    final output = await state.interact();
 
     // Clean up once again at last for the first render
     state.context.wipe();

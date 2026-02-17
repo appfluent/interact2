@@ -1,7 +1,7 @@
 import 'package:dart_console/dart_console.dart';
-import 'package:interact/src/framework/framework.dart';
-import 'package:interact/src/theme/theme.dart';
-import 'package:interact/src/utils/prompt.dart';
+import 'package:interact2/src/framework/framework.dart';
+import 'package:interact2/src/theme/theme.dart';
+import 'package:interact2/src/utils/prompt.dart';
 
 /// A sortable list component.
 class Sort extends Component<List<String>> {

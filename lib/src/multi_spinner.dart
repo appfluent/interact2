@@ -1,5 +1,5 @@
-import 'package:interact/src/framework/framework.dart';
-import 'package:interact/src/spinner.dart';
+import 'package:interact2/src/framework/framework.dart';
+import 'package:interact2/src/spinner.dart';
 
 /// A shared context and handler for rendering multiple [Spinner]s.
 class MultiSpinner {

@@ -1,7 +1,7 @@
 import 'dart:convert' show JsonEncoder;
-import 'dart:io' show stdout, stderr, exit;
+import 'dart:io' show exit, stderr, stdout;
 
-import 'package:interact/interact.dart';
+import 'package:interact2/interact.dart';
 
 void main() {
   final theme = Theme.basicTheme;
@@ -15,7 +15,7 @@ void main() {
   final name = Input.withTheme(
     theme: theme,
     prompt: 'package name',
-    defaultValue: 'interact',
+    defaultValue: 'interact2',
     validator: (x) {
       if (x.contains(RegExp(r'[^a-zA-Z\d]'))) {
         throw ValidationError('Contains an invalid character!');
@@ -27,7 +27,7 @@ void main() {
   final version = Input.withTheme(
     theme: theme,
     prompt: 'version',
-    defaultValue: '1.0.0',
+    defaultValue: '3.0.0',
     validator: (x) {
       if (!RegExp(r'^(\d+\.)?(\d+\.)?(\*|\d+)$').hasMatch(x)) {
         throw ValidationError('Not a valid version!');

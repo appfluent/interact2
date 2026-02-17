@@ -1,6 +1,6 @@
 import 'dart:io' show stdout;
 
-import 'package:interact/interact.dart' show Select;
+import 'package:interact2/interact.dart' show Select;
 
 void main() {
   final languages = ['Rust', 'Dart', 'TypeScript'];

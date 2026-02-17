@@ -1,6 +1,6 @@
 import 'dart:io' show stdout;
 
-import 'package:interact/interact.dart' show Confirm;
+import 'package:interact2/interact.dart' show Confirm;
 
 void main() {
   final x = Confirm(prompt: 'Does it work?').interact();
