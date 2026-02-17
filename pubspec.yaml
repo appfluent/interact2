@@ -2,6 +2,7 @@ name: interact2
 description: A collection of customizable interactive command-line components.
 version: 3.0.0
 repository: https://github.com/appfluent/interact2
+issue_tracker: https://github.com/appfluent/interact2/issues
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
